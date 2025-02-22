@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çınar Yalçınkaya - Dijital Kartvizit</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 350px;
+            backdrop-filter: blur(10px);
+        }
+        .card h2 {
+            margin-bottom: 10px;
+        }
+        .card p {
+            margin: 5px 0;
+            color: #ddd;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .btn-share {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-add {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Çınar Yalçınkaya</h2>
+        <p><strong>Şirket:</strong> Diacronia</p>
+        <p><strong>Pozisyon:</strong> CEO, Board Of Directors</p>
+        <p><strong>Departman:</strong> Lead Developer, Staff Management</p>
+        <p><strong>Telefon:</strong> 0535 390 0912</p>
+        <p><strong>Email:</strong> cinar.yalcinkaya@diacronia.xyz</p>
+        <button class="btn btn-share" onclick="shareCard()">Kartı Paylaş</button>
+        <button class="btn btn-add" onclick="addContact()">Numaramı Ekle</button>
+    </div>
+
+    <script>
+        function shareCard() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Çınar Yalçınkaya - Dijital Kartvizit',
+                    text: 'CEO, Board Of Directors - Lead Developer, Staff Management at Diacronia',
+                    url: window.location.href
+                });
+            } else {
+                alert("Tarayıcınız paylaşma özelliğini desteklemiyor.");
+            }
+        }
+
+        function addContact() {
+            window.location.href = "tel://05353900912";
+        }
+    </script>
+</body>
+</html>
